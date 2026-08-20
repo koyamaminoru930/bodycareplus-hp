@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ボディケアプラス(Bodycareplus)｜御茶ノ水の鍼灸整体サロン</title>
+<meta name="description" content="JR御茶ノ水駅徒歩1分。理学療法士・鍼灸師資格を持つスタッフによる完全個室の鍼灸整体サロン、ボディケアプラス。姿勢矯正・美容鍼・リフトアップ整体などのメニューをご用意しています。">
+<style>
+  :root{
+    --bg:#f7f4ee;
+    --surface:#ffffff;
+    --ink:#26332f;
+    --ink-soft:#5c6d66;
+    --primary:#2f4d43;
+    --primary-dark:#1c322a;
+    --accent:#b8895a;
+    --line:#e4ddd0;
+    --open:#3c7a5a;
+    --open-bg:#e7f3ec;
+    --soon:#b8763a;
+    --soon-bg:#faf0e3;
+    --closed:#8a8a8a;
+    --closed-bg:#eeeeee;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(28,50,42,0.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Hiragino Sans","Yu Gothic Medium","Noto Sans JP",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.8;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,244,238,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1040px;margin:0 auto;}
+  .brand{display:flex;flex-direction:column;line-height:1.2;}
+  .brand-en{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:600;}
+  .brand-jp{font-size:19px;font-weight:700;color:var(--primary-dark);letter-spacing:.02em;}
+  nav.links{display:flex;gap:22px;font-size:14px;}
+  nav.links a{text-decoration:none;color:var(--ink-soft);}
+  nav.links a:hover{color:var(--primary);}
+  .nav-cta{
+    display:inline-block;background:var(--primary);color:#fff;padding:9px 18px;border-radius:999px;
+    font-size:13px;text-decoration:none;font-weight:600;white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--primary-dark);}
+
+  /* Hero */
+  .hero{
+    padding:64px 0 48px;
+    background:
+      radial-gradient(600px 300px at 85% -10%, rgba(184,137,90,0.16), transparent),
+      linear-gradient(180deg,#f7f4ee 0%, #f1ece1 100%);
+  }
+  .hero-inner{display:grid;gap:28px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;letter-spacing:.12em;color:var(--primary);
+    background:var(--open-bg);border:1px solid #cfe3d7;
+    padding:6px 12px;border-radius:999px;width:fit-content;
+  }
+  h1{font-size:clamp(26px,4vw,38px);margin:14px 0 8px;color:var(--primary-dark);letter-spacing:.02em;}
+  .hero p.lead{font-size:15.5px;color:var(--ink-soft);max-width:56ch;margin:0 0 22px;}
+  .status-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:22px 24px;display:grid;gap:16px;max-width:520px;
+  }
+  .status-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .status-badge{
+    display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;font-weight:700;font-size:14px;
+  }
+  .status-badge .dot{width:9px;height:9px;border-radius:50%;}
+  .status-badge.open{background:var(--open-bg);color:var(--open);}
+  .status-badge.open .dot{background:var(--open);box-shadow:0 0 0 4px rgba(60,122,90,0.18);}
+  .status-badge.soon{background:var(--soon-bg);color:var(--soon);}
+  .status-badge.soon .dot{background:var(--soon);}
+  .status-badge.closed{background:var(--closed-bg);color:var(--closed);}
+  .status-badge.closed .dot{background:var(--closed);}
+  .status-meta{font-size:13px;color:var(--ink-soft);}
+  #now-date{font-weight:600;color:var(--ink);}
+  .status-hint{font-size:13px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:14px;}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;
+    text-decoration:none;font-weight:700;font-size:14.5px;
+  }
+  .btn.primary{background:var(--accent);color:#fff;}
+  .btn.primary:hover{background:#a5764a;}
+  .btn.ghost{background:transparent;color:var(--primary-dark);border:1px solid var(--primary-dark);}
+  .btn.ghost:hover{background:var(--primary-dark);color:#fff;}
+
+  section{padding:56px 0;}
+  .section-head{margin-bottom:30px;}
+  .kicker{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700;text-transform:uppercase;}
+  h2{font-size:clamp(21px,3vw,27px);color:var(--primary-dark);margin:6px 0 0;}
+  .section-lead{color:var(--ink-soft);font-size:14.5px;margin-top:10px;max-width:60ch;}
+
+  /* Concept */
+  .concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .concept-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+  .concept-card .icon{
+    width:40px;height:40px;border-radius:10px;background:var(--open-bg);
+    display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px;
+  }
+  .concept-card h3{font-size:15.5px;margin:0 0 8px;color:var(--ink);}
+  .concept-card p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+
+  /* Menu */
+  .menu-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+  .menu-tab{
+    padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);
+    font-size:13.5px;font-weight:600;color:var(--ink-soft);cursor:pointer;
+  }
+  .menu-tab.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .menu-list{display:grid;gap:12px;}
+  .menu-panel{display:none;}
+  .menu-panel.active{display:grid;gap:12px;}
+  .menu-item{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  }
+  .menu-item .name{font-weight:700;font-size:14.5px;}
+  .menu-item .time{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .menu-item .price{text-align:right;white-space:nowrap;}
+  .menu-item .price .now{font-size:17px;font-weight:800;color:var(--accent);}
+  .menu-item .price .was{font-size:12.5px;color:#aaa;text-decoration:line-through;margin-right:6px;}
+  .price-note{margin-top:14px;font-size:12.5px;color:var(--ink-soft);}
+
+  /* Hours table */
+  .hours-wrap{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);}
+  table.hours{width:100%;border-collapse:collapse;font-size:14px;}
+  table.hours th, table.hours td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line);}
+  table.hours th{color:var(--ink-soft);font-weight:600;font-size:12.5px;}
+  table.hours td.today, table.hours th.today{background:var(--open-bg);border-radius:8px;font-weight:700;color:var(--primary-dark);}
+  .closed-cell{color:#bbb;}
+  .hours-note{font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+
+  /* Access */
+  .access-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:stretch;}
+  .access-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+  .access-card dl{margin:0;}
+  .access-card dt{font-size:12px;color:var(--accent);font-weight:700;margin-top:16px;}
+  .access-card dt:first-child{margin-top:0;}
+  .access-card dd{margin:4px 0 0;font-size:14.5px;}
+  .map-frame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:280px;box-shadow:var(--shadow);}
+  .map-frame iframe{width:100%;height:100%;min-height:280px;border:0;display:block;}
+
+  /* News */
+  .news-list{display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+  .news-item{display:flex;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line);align-items:baseline;flex-wrap:wrap;}
+  .news-item:last-child{border-bottom:0;}
+  .news-item .date{font-size:12.5px;color:var(--ink-soft);white-space:nowrap;min-width:88px;}
+  .news-item .tag{font-size:11px;background:var(--open-bg);color:var(--open);padding:3px 9px;border-radius:999px;font-weight:700;}
+  .news-item .text{font-size:14px;flex:1;min-width:200px;}
+
+  footer{padding:40px 0 60px;border-top:1px solid var(--line);margin-top:20px;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font-size:13px;color:var(--ink-soft);}
+  .footer-grid .brand-jp{color:var(--primary-dark);}
+
+  @media (max-width:760px){
+    nav.links{display:none;}
+    .concept-grid{grid-template-columns:1fr;}
+    .access-grid{grid-template-columns:1fr;}
+    .map-frame{min-height:220px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <div class="brand">
+      <span class="brand-en">BODYCAREPLUS</span>
+      <span class="brand-jp">ボディケアプラス</span>
+    </div>
+    <nav class="links">
+      <a href="#concept">コンセプト</a>
+      <a href="#menu">メニュー</a>
+      <a href="#hours">営業時間</a>
+      <a href="#access">アクセス</a>
+      <a href="#news">お知らせ</a>
+    </nav>
+    <a class="nav-cta" href="https://beauty.hotpepper.jp/kr/slnH000779257/coupon/" target="_blank" rel="noopener">ご予約はこちら</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow">御茶ノ水駅 徒歩1分・完全個室</span>
+      <h1>根本原因にアプローチする<br>鍼灸整体サロン、ボディケアプラス</h1>
+      <p class="lead">理学療法士・鍼灸師の国家資格を持つスタッフが、超音波で痛みの原因を可視化しながら施術。姿勢の歪みや慢性的な不調に、根拠のあるケアで向き合います。</p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://beauty.hotpepper.jp/kr/slnH000779257/coupon/" target="_blank" rel="noopener">初回限定クーポンを見る</a>
+        <a class="btn ghost" href="#access">アクセスを見る</a>
+      </div>
+    </div>
+
+    <div class="status-card">
+      <div class="status-row">
+        <span class="status-badge" id="status-badge"><span class="dot"></span><span id="status-text">確認中…</span></span>
+        <span class="status-meta">本日 <span id="now-date">-</span></span>
+      </div>
+      <div class="status-hint" id="status-hint">営業時間を読み込んでいます…</div>
+    </div>
+  </div>
+</section>
+
+<section id="concept">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Concept</span>
+      <h2>ボディケアプラスが選ばれる理由</h2>
+      <p class="section-lead">「なんとなく整体」ではなく、資格と経験に基づいた根拠のあるケアを、完全個室でリラックスしながら受けていただけます。</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="icon">🩺</div>
+        <h3>国家資格スタッフが担当</h3>
+        <p>理学療法士・鍼灸師の資格を持つスタッフが、体の状態を丁寧に見立てたうえで施術を行います。</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🔎</div>
+        <h3>超音波で痛みを可視化</h3>
+        <p>感覚だけに頼らず、超音波を使って痛みの原因となっている部位を確認しながらアプローチします。</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🚪</div>
+        <h3>完全個室でリラックス</h3>
+        <p>周りを気にせず、ご自身の体とじっくり向き合える完全個室のプライベート空間です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:#f1ece1;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Menu</span>
+      <h2>メニュー・料金</h2>
+      <p class="section-lead">初めての方限定の特別価格をご用意しています。まずはお試しやすいメニューからどうぞ。</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-tab="first">初回限定</button>
+      <button class="menu-tab" data-tab="regular">通常メニュー</button>
+    </div>
+
+    <div class="menu-list">
+      <div class="menu-panel active" id="panel-first">
+        <div class="menu-item">
+          <div><div class="name">鍼灸整体</div><div class="time">20分</div></div>
+          <div class="price"><span class="was">¥8,250</span><span class="now">¥4,400</span></div>
+        </div>
+        <div class="menu-item">
+          <div><div class="name">姿勢矯正</div><div class="time">50分</div></div>
+          <div class="price"><span class="was">¥12,100</span><span class="now">¥6,600</span></div>
+        </div>
+        <div class="menu-item">
+          <div><div class="name">プチ美容鍼</div><div class="time">40分</div></div>
+          <div class="price"><span class="was">¥13,200</span><span class="now">¥6,600</span></div>
+        </div>
+        <div class="menu-item">
+          <div><div class="name">リフトアップ整体</div><div class="time">80分</div></div>
+          <div class="price"><span class="was">¥22,000</span><span class="now">¥13,200</span></div>
+        </div>
+        <div class="menu-item">
+          <div><div class="name">ヘッド専用（鍼×マッサージ）</div><div class="time">40分</div></div>
+          <div class="price"><span class="was">¥14,850</span><span class="now">¥6,600</span></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-regular">
+        <div class="menu-item">
+          <div><div class="name">姿勢矯正</div><div class="time">50分</div></div>
+          <div class="price"><span class="now">¥12,100</span></div>
+        </div>
+        <div class="menu-item">
+          <div><div class="name">鍼灸整体</div><div class="time">40分</div></div>
+          <div class="price"><span class="now">¥16,500</span></div>
+        </div>
+        <div class="menu-item">
+          <div><div class="name">鍼灸整体</div><div class="time">60分</div></div>
+          <div class="price"><span class="now">¥24,750</span></div>
+        </div>
+        <div class="menu-item">
+          <div><div class="name">美容鍼＆整体</div><div class="time">80分</div></div>
+          <div class="price"><span class="now">¥22,000</span></div>
+        </div>
+        <div class="menu-item">
+          <div><div class="name">歩行分析／オーダーメイドインソール（両足）</div><div class="time">50分</div></div>
+          <div class="price"><span class="now">¥33,000</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="price-note">※料金はすべて税込です。詳細・その他のクーポンはHot Pepper Beautyのページをご確認ください。</p>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Hours</span>
+      <h2>営業時間</h2>
+      <p class="section-lead">本日の曜日は自動でハイライトされます。</p>
+    </div>
+    <div class="hours-wrap">
+      <table class="hours" id="hours-table">
+        <thead>
+          <tr>
+            <th data-day="1">月</th><th data-day="2">火</th><th data-day="3">水</th>
+            <th data-day="4">木</th><th data-day="5">金</th><th data-day="6">土</th><th data-day="0">日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-day="1">19:00-23:00</td>
+            <td data-day="2">18:40-23:00</td>
+            <td data-day="3">19:00-23:00</td>
+            <td data-day="4">19:30-23:00</td>
+            <td data-day="5">19:00-23:00</td>
+            <td data-day="6">13:00-23:00</td>
+            <td data-day="0" class="closed-cell">定休日</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="hours-note">※日曜・祝日は定休日です。祝日は上記に加えてお休みとなる場合があります。</p>
+    </div>
+  </div>
+</section>
+
+<section id="access" style="background:#f1ece1;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Access</span>
+      <h2>アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-card">
+        <dl>
+          <dt>住所</dt>
+          <dd>東京都千代田区神田駿河台2-1-19<br>アルベルゴ御茶ノ水 418号室</dd>
+          <dt>最寄り駅</dt>
+          <dd>
+            JR「御茶ノ水駅」御茶ノ水橋口より徒歩1分<br>
+            東京メトロ千代田線「新御茶ノ水駅」より徒歩3分<br>
+            都営三田線「御茶ノ水駅」より徒歩2分
+          </dd>
+          <dt>行き方</dt>
+          <dd>アルベルゴ御茶ノ水のエレベーターで4階へ。降りて左側、418号室です。</dd>
+          <dt>ご予約</dt>
+          <dd><a class="btn primary" style="margin-top:8px;" href="https://beauty.hotpepper.jp/kr/slnH000779257/" target="_blank" rel="noopener">Hot Pepper Beautyで予約</a></dd>
+        </dl>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A7%BF%E6%B2%B3%E5%8F%B02-1-19&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ボディケアプラス地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">News</span>
+      <h2>お知らせ</h2>
+      <p class="section-lead">最新情報はこちらに追記していきます。内容の更新はお気軽にお申し付けください。</p>
+    </div>
+    <div class="news-list" id="news-list">
+      <!-- お知らせはここに追加できます。日付は新しい順にしてください。 -->
+      <div class="news-item">
+        <span class="date">2026.08.11</span>
+        <span class="tag">OPEN</span>
+        <span class="text">ホームページを公開しました。ご予約はHot Pepper Beautyより承っております。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand-jp" style="font-weight:700;">ボディケアプラス（Bodycareplus）</div>
+      <div>東京都千代田区神田駿河台2-1-19 アルベルゴ御茶ノ水418号室</div>
+    </div>
+    <div id="footer-updated">最終更新日：-</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // 営業時間データ（曜日: 0=日 ... 6=土）分単位の開始・終了時刻
+  var HOURS = {
+    0: null,                 // 日曜定休
+    1: [19*60, 23*60],       // 月
+    2: [18*60+40, 23*60],    // 火
+    3: [19*60, 23*60],       // 水
+    4: [19*60+30, 23*60],    // 木
+    5: [19*60, 23*60],       // 金
+    6: [13*60, 23*60]        // 土
+  };
+  var WEEKDAY_JP = ['日','月','火','水','木','金','土'];
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function fmtTime(mins){
+    var h = Math.floor(mins/60), m = mins % 60;
+    return pad(h) + ':' + pad(m);
+  }
+
+  // 訪問者のデバイスの時刻設定に関わらず、常に日本時間（Asia/Tokyo）で判定する
+  function getTokyoNow(){
+    var parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Tokyo',
+      year:'numeric', month:'numeric', day:'numeric',
+      hour:'numeric', minute:'numeric', second:'numeric',
+      weekday:'short', hour12:false
+    }).formatToParts(new Date());
+    var map = {};
+    parts.forEach(function(p){ map[p.type] = p.value; });
+    var weekdayMap = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    return {
+      year: parseInt(map.year,10),
+      month: parseInt(map.month,10),
+      date: parseInt(map.day,10),
+      hour: parseInt(map.hour,10) % 24,
+      minute: parseInt(map.minute,10),
+      day: weekdayMap[map.weekday]
+    };
+  }
+
+  function updateStatus(){
+    var now = getTokyoNow();
+    var day = now.day;
+    var mins = now.hour*60 + now.minute;
+    var todays = HOURS[day];
+
+    var badge = document.getElementById('status-badge');
+    var text = document.getElementById('status-text');
+    var hint = document.getElementById('status-hint');
+    var dateEl = document.getElementById('now-date');
+
+    dateEl.textContent = now.month + '月' + now.date + '日（' + WEEKDAY_JP[day] + '）' + pad(now.hour) + ':' + pad(now.minute);
+
+    badge.classList.remove('open','soon','closed');
+
+    if(!todays){
+      badge.classList.add('closed');
+      text.textContent = '本日は定休日';
+      hint.textContent = '日曜・祝日はお休みをいただいております。ご予約は営業日にお願いいたします。';
+      return;
+    }
+
+    var openMin = todays[0], closeMin = todays[1];
+
+    if(mins < openMin){
+      badge.classList.add('soon');
+      text.textContent = '本日 ' + fmtTime(openMin) + ' 開店';
+      hint.textContent = '本日の営業は ' + fmtTime(openMin) + '〜' + fmtTime(closeMin) + ' です。開店まで今しばらくお待ちください。';
+    } else if(mins < closeMin){
+      badge.classList.add('open');
+      text.textContent = 'ただいま営業中';
+      hint.textContent = '本日は ' + fmtTime(closeMin) + ' まで営業しております。';
+    } else {
+      badge.classList.add('closed');
+      text.textContent = '本日の営業は終了しました';
+      hint.textContent = '次回の営業時間は営業カレンダーをご確認ください。';
+    }
+  }
+
+  function highlightToday(){
+    var day = getTokyoNow().day;
+    var table = document.getElementById('hours-table');
+    if(!table) return;
+    var cells = table.querySelectorAll('[data-day="' + day + '"]');
+    cells.forEach(function(c){ c.classList.add('today'); });
+  }
+
+  function stampFooter(){
+    var el = document.getElementById('footer-updated');
+    if(!el) return;
+    var now = getTokyoNow();
+    el.textContent = 'ページ表示日時：' + now.year + '年' + now.month + '月' + now.date + '日 ' + pad(now.hour) + ':' + pad(now.minute) + '（日本時間）';
+  }
+
+  updateStatus();
+  highlightToday();
+  stampFooter();
+  setInterval(updateStatus, 60 * 1000);
+})();
+
+// メニュータブ切り替え
+(function(){
+  var tabs = document.querySelectorAll('.menu-tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      document.querySelectorAll('.menu-panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
