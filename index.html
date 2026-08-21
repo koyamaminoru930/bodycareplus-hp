@@ -329,12 +329,29 @@
 
   /* Concerns */
   .concerns-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-  .concerns-grid li{
-    list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  .concerns-grid li{list-style:none;}
+  .concerns-grid li a{
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;
     padding:12px 16px;font-size:13.5px;color:var(--ink);display:flex;gap:8px;align-items:flex-start;
+    text-decoration:none;transition:box-shadow .2s,transform .2s,border-color .2s,background .2s;
   }
-  .concerns-grid li::before{content:"✓";color:var(--primary);font-weight:800;}
-  @media (max-width:760px){ .concerns-grid{grid-template-columns:1fr;} }
+  .concerns-grid li a::before{content:"✓";color:var(--primary);font-weight:800;flex-shrink:0;}
+  .concerns-grid li a::after{
+    content:"詳しく見る →";margin-left:auto;padding-left:10px;flex-shrink:0;white-space:nowrap;
+    font-size:12px;color:var(--primary);opacity:0;transform:translateX(-4px);
+    transition:opacity .2s,transform .2s;
+  }
+  .concerns-grid li a:hover,
+  .concerns-grid li a:focus-visible{
+    box-shadow:0 8px 20px rgba(10,63,43,0.10);transform:translateY(-1px);
+    border-color:var(--primary-light);background:var(--open-bg);
+  }
+  .concerns-grid li a:hover::after,
+  .concerns-grid li a:focus-visible::after{opacity:1;transform:translateX(0);}
+  @media (max-width:760px){
+    .concerns-grid{grid-template-columns:1fr;}
+    .concerns-grid li a::after{content:"→";}
+  }
   .profile-body h3{font-size:15px;color:var(--primary-dark);margin:26px 0 10px;}
   .profile-body h3:first-child{margin-top:0;}
   .profile-body p{font-size:14px;color:var(--ink-soft);margin:0;}
@@ -619,12 +636,12 @@
       <p class="section-lead">スタッフが日々の施術やブログで発信している内容から、特にご相談の多いお悩みをまとめました。</p>
     </div>
     <ul class="concerns-grid reveal-stagger">
-      <li>スマホ・PC作業による首こり、猫背、巻き肩</li>
-      <li>下を向くと痛い、頸椎症・頸椎椎間板症などの首の不調</li>
-      <li>後頭部の筋緊張からくる頭痛・めまい</li>
-      <li>反り腰・前かがみ姿勢による腰や背中の張り</li>
-      <li>外反母趾・巻き爪・モートン病など足のトラブル</li>
-      <li>歩き方や靴の合わなさが気になる方（オーダーメイドインソール）</li>
+      <li><a href="symptoms/kubikori-nekoze.html">スマホ・PC作業による首こり、猫背、巻き肩</a></li>
+      <li><a href="symptoms/keitsuisho.html">下を向くと痛い、頸椎症・頸椎椎間板症などの首の不調</a></li>
+      <li><a href="symptoms/zutsu-memai.html">後頭部の筋緊張からくる頭痛・めまい</a></li>
+      <li><a href="symptoms/sorikoshi.html">反り腰・前かがみ姿勢による腰や背中の張り</a></li>
+      <li><a href="symptoms/gaihanbosi.html">外反母趾・巻き爪・モートン病など足のトラブル</a></li>
+      <li><a href="symptoms/insole.html">歩き方や靴の合わなさが気になる方（オーダーメイドインソール）</a></li>
     </ul>
   </div>
 </section>
