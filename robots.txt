@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://koyamaminoru930.github.io/bodycareplus-hp/sitemap.xml
