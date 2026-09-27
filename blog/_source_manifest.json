@@ -1,0 +1,12 @@
+{
+  "source_url": "https://beauty.hotpepper.jp/kr/slnH000779257/blog/",
+  "last_processed_bid": "bidA125752088",
+  "last_processed_date": "2026-09-25",
+  "last_processed_title": "肩こりの原因について",
+  "skipped_bids": [
+    "bidA107797666",
+    "bidA109425769",
+    "bidA123704335"
+  ],
+  "notes": "過去記事移植(98件中95件、2026-01-01〜2026-09-25分)は2026-09-27に完了。skipped_bidsはHotPepper側の販促・キャンペーン告知のみで評価性が低く除外した記事。今後は日次の自動移植タスクが、このファイルのlast_processed_bidより新しいbid(bidAの後ろ9桁の数字を比較)を検知して処理し、このファイルを更新する。"
+}
