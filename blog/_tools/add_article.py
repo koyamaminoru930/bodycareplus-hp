@@ -25,6 +25,8 @@ article.json の形式:
 1. blog/<slug>.html を新規生成する(prev_href/prev_labelは現在の最新記事、next_hrefは仮でindex.html)
 2. これまでの最新記事(index.htmlのpost-grid先頭)のHTMLファイルを見つけて、その「次の記事へ」リンクを今回追加した記事に書き換える
 3. blog/index.html の post-grid ブロックの先頭に、新しい記事カードを追加する
+4. サイトルートの index.html(ホームページ)の「スタッフブログ」新着カード欄を、
+   blog/index.html の最新4記事に合わせて自動更新する(手動更新忘れを防ぐため)
 
 このスクリプトは1回のコミットで複数回呼び出せる(複数記事を続けて追加する場合)。
 """
@@ -36,6 +38,8 @@ from blog_template import render
 BLOG_DIR = os.path.join(os.path.dirname(__file__), "..")
 BLOG_DIR = os.path.abspath(BLOG_DIR)
 INDEX_PATH = os.path.join(BLOG_DIR, "index.html")
+SITE_ROOT = os.path.abspath(os.path.join(BLOG_DIR, ".."))
+HOMEPAGE_PATH = os.path.join(SITE_ROOT, "index.html")
 
 CARD_RE = re.compile(
     r'(<div class="post-grid">\n)(.*?)(\n    </div>)', re.DOTALL
@@ -45,6 +49,65 @@ CARD_RE = re.compile(
 CARD_ITEM_RE = re.compile(
     r'<a class="post-card reveal" href="([^"]+)\.html">', re.DOTALL
 )
+
+# blog/index.html の1件分のカード全体(href, タイトル, 投稿日)を取り出す正規表現
+FULL_CARD_RE = re.compile(
+    r'<a class="post-card reveal" href="([^"]+)\.html">\s*'
+    r'<span class="post-kicker">.*?</span>\s*'
+    r'<h2>(.*?)</h2>\s*'
+    r'<p class="post-desc">.*?</p>\s*'
+    r'<span class="post-date">(.*?)</span>\s*'
+    r'</a>',
+    re.DOTALL,
+)
+
+JP_DATE_RE = re.compile(r'(\d{4})年(\d{1,2})月(\d{1,2})日')
+
+HOMEPAGE_GRID_RE = re.compile(
+    r'(<ul class="blog-grid reveal-stagger">\n)(.*?)(\n    </ul>)', re.DOTALL
+)
+
+
+def jp_date_to_dotted(date_disp):
+    m = JP_DATE_RE.search(date_disp)
+    if not m:
+        return date_disp
+    y, mo, d = m.groups()
+    return "{0}.{1:02d}.{2:02d}".format(int(y), int(mo), int(d))
+
+
+def update_homepage_preview():
+    """ホームページ(サイトルートのindex.html)の「スタッフブログ」新着カード4件を、
+    blog/index.html の最新4記事に合わせて更新する。"""
+    with open(INDEX_PATH, encoding="utf-8") as f:
+        blog_index_html = f.read()
+    cards = FULL_CARD_RE.findall(blog_index_html)[:4]
+    if not cards:
+        raise RuntimeError("blog/index.html からカード情報を抽出できませんでした")
+
+    items = []
+    for slug, title, date_disp in cards:
+        items.append(
+            '      <li class="blog-card">\n'
+            '        <a href="blog/{slug}.html">\n'
+            '          <span class="blog-date">{date}</span>\n'
+            '          <p class="blog-title">{title}</p>\n'
+            '          <span class="blog-arrow">続きを読む →</span>\n'
+            '        </a>\n'
+            '      </li>'.format(
+                slug=slug, date=jp_date_to_dotted(date_disp), title=title
+            )
+        )
+    new_block = "\n".join(items)
+
+    with open(HOMEPAGE_PATH, encoding="utf-8") as f:
+        home_html = f.read()
+    m = HOMEPAGE_GRID_RE.search(home_html)
+    if not m:
+        raise RuntimeError("ホームページのindex.htmlから blog-grid ブロックが見つかりませんでした")
+    new_home_html = home_html[: m.start(2)] + new_block + home_html[m.end(2):]
+    with open(HOMEPAGE_PATH, "w", encoding="utf-8") as f:
+        f.write(new_home_html)
 
 
 def find_latest_slug():
@@ -124,6 +187,7 @@ def add_article(a):
 
     patch_prev_article_next_link(prev_slug, a["slug"], a["title"])
     prepend_card_to_index(a)
+    update_homepage_preview()
     print("added:", a["slug"])
 
 
