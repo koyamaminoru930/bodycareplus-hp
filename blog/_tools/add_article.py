@@ -188,6 +188,8 @@ def add_article(a):
     patch_prev_article_next_link(prev_slug, a["slug"], a["title"])
     prepend_card_to_index(a)
     update_homepage_preview()
+    import build_sitemap
+    build_sitemap.build()
     print("added:", a["slug"])
 
 
