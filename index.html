@@ -45,12 +45,12 @@
   },
   "hasMap": "https://maps.google.com/?cid=8219081074833150671",
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "19:00", "closes": "23:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "18:40", "closes": "23:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "19:00", "closes": "23:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "19:30", "closes": "23:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "19:00", "closes": "23:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "13:00", "closes": "23:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "19:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "15:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "19:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "19:30", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "19:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "13:00", "closes": "22:00" }
   ],
   "sameAs": [
     "https://beauty.hotpepper.jp/kr/slnH000779257/",
@@ -969,12 +969,12 @@
           </thead>
           <tbody>
             <tr>
-              <td data-day="1">19:00-23:00</td>
-              <td data-day="2">18:40-23:00</td>
-              <td data-day="3">19:00-23:00</td>
-              <td data-day="4">19:30-23:00</td>
-              <td data-day="5">19:00-23:00</td>
-              <td data-day="6">13:00-23:00</td>
+              <td data-day="1">19:00-22:00</td>
+              <td data-day="2">15:00-22:00</td>
+              <td data-day="3">19:00-22:00</td>
+              <td data-day="4">19:30-22:00</td>
+              <td data-day="5">19:00-22:00</td>
+              <td data-day="6">13:00-22:00</td>
               <td data-day="0" class="closed-cell">定休日</td>
             </tr>
           </tbody>
@@ -1064,12 +1064,12 @@
   // 営業時間データ（曜日: 0=日 ... 6=土）分単位の開始・終了時刻
   var HOURS = {
     0: null,                 // 日曜定休
-    1: [19*60, 23*60],       // 月
-    2: [18*60+40, 23*60],    // 火
-    3: [19*60, 23*60],       // 水
-    4: [19*60+30, 23*60],    // 木
-    5: [19*60, 23*60],       // 金
-    6: [13*60, 23*60]        // 土
+    1: [19*60, 22*60],       // 月
+    2: [15*60, 22*60],    // 火
+    3: [19*60, 22*60],       // 水
+    4: [19*60+30, 22*60],    // 木
+    5: [19*60, 22*60],       // 金
+    6: [13*60, 22*60]        // 土
   };
   var WEEKDAY_JP = ['日','月','火','水','木','金','土'];
 
